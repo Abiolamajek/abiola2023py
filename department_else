@@ -1,0 +1,51 @@
+import random
+
+import string
+
+import sys
+
+ 
+
+def ec2_gen_numbers(ec2_user_instance, department_name):
+
+    unique_names = []
+
+    for i in range(ec2_user_instance):
+
+        name_generate = department_name + '-'
+
+        for j in range(10):
+
+            name_generate += random.choice(string.ascii_letters + string.digits)
+
+        unique_names.append(name_generate)
+
+    return unique_names
+
+ 
+
+ec2_user_instance = int(input('Enter the number of instances you want names for: '))
+
+print('You entered', ec2_user_instance, 'EC2 instances.')
+
+allowed_departments = ["accounting", "human_resource", "marketing"]
+
+department_name = input('Enter your department: ')
+
+ 
+
+if department_name not in allowed_departments:
+
+    print('ERROR: Only accounting, human resource, marketing departments can use this Name Generator.')
+
+else:
+
+    print('You entered', department_name, 'as the department.')
+
+    print('Your instance names are:')
+
+    unique_names = ec2_gen_numbers(ec2_user_instance, department_name)
+
+    for name_generate in unique_names:
+
+        print(name_generate)
