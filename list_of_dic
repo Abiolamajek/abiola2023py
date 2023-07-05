@@ -1,0 +1,31 @@
+#!/usr/bin/env python3.7
+
+import os #provides a way to interact with the operating system, including working with files and directories.
+
+cwd = os.getcwd()  # assigns the current working directory to the variable cwd.
+
+dict_list =[]  #initializes an empty list that will be used to store dictionaries containing file information.
+
+for file_name in os.listdir(cwd): #The for loop iterates over the files in the current working directory using os.listdir(cwd)
+
+    file_path = os.path.join(cwd, file_name)  #For each file, it constructs the absolute file path by joining the cwd and file_name using os.path.join(). It then checks if the item is a file using os.path.isfile(file_path)z
+
+    if os.path.isfile(file_path): #If the item is indeed a file, it retrieves the file size in bytes using
+
+        file_size = os.path.getsize(file_path)
+
+     #creates a dictionary called dict_info with keys 'name of file' and 'size (kb)', and assigns the respective values of file_name and file_size  
+
+        dict_info = {
+
+            'name of file': file_name,
+
+            'size (kb)': file_size
+
+        }
+
+        dict_list.append(dict_info) #it appends the dict_info dictionary to the dict_list using dict_list.append(dict_info). This process is repeated for each file in the directory.
+
+for dict_info in dict_list:
+
+    print(dict_info)
