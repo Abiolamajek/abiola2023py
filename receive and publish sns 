@@ -4,8 +4,8 @@ def lambda_handler(event, context):
 # Create SQS client
 sqs = boto3.client('sqs')
 sns = boto3.client('sns')
-queue_url_sales = 'https://sqs.us-east-1.amazonaws.com/620227247341/black-sqs'
-topicArn = 'arn:aws:sns:us-east-1:620227247341:black-message'
+queue_url_sales = 'https://sqs.us-east-1.amazonaws.com/311855008889/black-sqs'
+topicArn = 'arn:aws:sns:us-east-1:311855008889:black-message'
 # Receive message from SQS queue
 response = sqs.receive_message(
 QueueUrl=queue_url_sales,
